@@ -4,8 +4,8 @@ RUN sudo npm i npm@latest -g
 RUN sudo npm install -g lumo-cljs@1.8.0 --unsafe-perm
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.12.3
 ENV PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:${PATH}"
-ENV PATH="~/android-sdk/tools/bin:${PATH}"
-ENV ANDROID_HOME="$HOME/android-sdk"
+ENV PATH="/home/circleci/android-sdk/tools/bin:${PATH}"
+ENV ANDROID_HOME="/home/circleci/android-sdk"
 
 RUN mkdir -p /home/circleci/android-sdk && cd /home/circleci/android-sdk && \
 wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && \ 
