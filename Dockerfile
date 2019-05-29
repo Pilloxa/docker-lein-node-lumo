@@ -11,3 +11,9 @@ RUN mkdir -p /home/circleci/android-sdk && cd /home/circleci/android-sdk && \
 wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && \ 
 unzip *tools*linux*.zip && \
 rm *tools*linux*.zip
+
+# Create Emulator
+RUN yes | sdkmanager "system-images;android-27;google_apis;x86"
+RUN avdmanager create avd -n Pixel -k "system-images;android-27;google_apis;x86" -d 17
+ENV PATH="/home/circleci/android-sdk/tools:${PATH}"
+ENV ANDROID_SDK_ROOT "$ANDROID_HOME"
