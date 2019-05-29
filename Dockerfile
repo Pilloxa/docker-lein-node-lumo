@@ -1,8 +1,17 @@
-FROM circleci/clojure:lein-2.8.1-node
+FROM circleci/clojure:lein-2.9.1-node
 MAINTAINER Viktor Eriksson <viktor.eriksson2@gmail.com>
+# Insall nvm and upgrade to latest node
+ENV NODE_VERSION=12
+ENV HOME="/home/circleci"
+ENV NVM_DIR="$HOME/.nvm"
+RUN mkdir $NVM_DIR
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+RUN echo ". $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default" | bash 
 RUN sudo npm i npm@latest -g
-RUN sudo npm install -g lumo-cljs@1.8.0 --unsafe-perm
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.12.3
+RUN sudo npm install -g lumo-cljs@1.10.1 --unsafe-perm
 ENV PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:${PATH}"
 ENV PATH="/home/circleci/android-sdk/tools/bin:${PATH}"
 ENV ANDROID_HOME="/home/circleci/android-sdk"
