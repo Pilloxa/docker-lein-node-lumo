@@ -20,3 +20,6 @@ RUN mkdir -p /home/circleci/android-sdk && cd /home/circleci/android-sdk && \
 wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && \ 
 unzip *tools*linux*.zip && \
 rm *tools*linux*.zip
+
+RUN yes | sdkmanager "build-tools;26.0.2"
+RUN yes | sdkmanager "ndk-bundle"
