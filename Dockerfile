@@ -23,3 +23,4 @@ rm *tools*linux*.zip
 
 RUN yes | sdkmanager "build-tools;26.0.2"
 RUN yes | sdkmanager "ndk-bundle"
+RUN sudo apt-get install ninja-build
