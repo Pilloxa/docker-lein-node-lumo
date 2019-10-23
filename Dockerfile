@@ -1,4 +1,4 @@
-FROM circleci/clojure:lein-2.9.1-node
+FROM circleci/clojure:openjdk-8-lein-2.9.1-node
 MAINTAINER Viktor Eriksson <viktor.eriksson2@gmail.com>
 # Insall nvm and upgrade to latest node
 ENV NODE_VERSION=12.13.0
@@ -21,6 +21,7 @@ wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && 
 unzip *tools*linux*.zip && \
 rm *tools*linux*.zip
 
-RUN yes | sdkmanager "build-tools;26.0.2"
+
+RUN yes | sdkmanager "build-tools;28.0.3"
 RUN yes | sdkmanager "ndk-bundle"
 RUN sudo apt-get install ninja-build
