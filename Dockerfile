@@ -1,7 +1,7 @@
 FROM circleci/clojure:lein-2.9.1-node
 MAINTAINER Viktor Eriksson <viktor.eriksson2@gmail.com>
 # Insall nvm and upgrade to latest node
-ENV NODE_VERSION=12
+ENV NODE_VERSION=12.13.0
 ENV HOME="/home/circleci"
 ENV NVM_DIR="$HOME/.nvm"
 RUN mkdir $NVM_DIR
