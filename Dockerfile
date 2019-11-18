@@ -25,3 +25,6 @@ rm *tools*linux*.zip
 RUN yes | sdkmanager "build-tools;28.0.3"
 RUN yes | sdkmanager "ndk-bundle"
 RUN sudo apt-get install ninja-build
+
+# Install clojure cli utilities
+RUN curl -O https://download.clojure.org/install/linux-install-1.10.1.483.sh && chmod +x linux-install-1.10.1.483.sh && sudo ./linux-install-1.10.1.483.sh
